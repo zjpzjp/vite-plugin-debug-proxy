@@ -1,32 +1,27 @@
-当在开发阶段使用Vite构建前端应用时，有时需要与多个后端服务器进行交互。
-> 例如：mock环境、测试环境、生产环境
+When developing frontend applications with Vite, there is often a need to interact with multiple backend servers, such as mock environments, testing environments, and production environments. To simplify this process, I have created a tool called the "Vite Dynamic Reverse Proxy Plugin." This plugin can dynamically set reverse proxies based on URL parameters (`?debug=URL`), allowing you to easily switch between different development and testing environments without manual proxy configuration.
 
-为了简化这一过程，我创建了一个名为"Vite动态反向代理插件"的工具。
-这个插件可以根据URL上的参数（?debug=URL）动态设置反向代理，
-能够轻松地在不同的开发和测试环境中切换，而无需手动更改代理设置。
+### Key Features
 
-### 功能特点
+- **Dynamic Proxy Configuration**: Automatically configure reverse proxies based on URL parameters, eliminating the need to manually modify the Vite configuration file.
+- **Simple and Easy to Use**: Install the plugin and provide the required parameters to seamlessly integrate it into your Vite project.
+- **Flexibility**: Supports flexible switching of proxy targets during development to adapt to different testing environments.
 
-- **动态代理配置**：根据URL上的参数自动配置反向代理，无需手动更改Vite配置文件。
-- **简单易用**：只需安装插件并提供所需的参数，即可轻松集成到您的Vite项目中。
-- **灵活性**：支持在开发阶段灵活切换代理目标，以适应不同的测试环境。
+### How to Use
 
-### 如何使用
-
-1. 安装插件：
+1. Install the plugin:
 
    ```shell
    npm install vite-plugin-dynamic-proxy
    ```
 
-2. 在Vite配置文件中使用插件：
+2. Use the plugin in your Vite configuration file:
 
    ```javascript
    // vite.config.js
    import dynamicProxy from 'vite-plugin-dynamic-proxy';
 
    export default {
-     // ...其他配置
+     // ...other configuration
 
      plugins: [
        // ...
@@ -35,9 +30,8 @@
    };
    ```
 
+3. When accessing your application, you can automatically set the proxy target using URL parameters. For example:
 
-3. 访问您的应用程序时，可以通过URL参数自动设置代理目标，例如：
+   - Accessing `http://localhost:3000?debug=https://192.168.1.123:8080/` will proxy all requests from `http://localhost:3000/api/*` to `https://192.168.1.123:8080/*`.
 
-   -  ` 例如：http://localhost:3000?debug=https://192.168.1.123:8080/`
-   表示将所有http://localhost:3000/api/* 代理到 https://192.168.1.123:8080/*   
-
+This "Vite Dynamic Reverse Proxy Plugin" will greatly simplify the configuration of backend interactions during development, allowing you to switch between different environments effortlessly. No manual proxy settings are required. If you have any questions or suggestions, please feel free to reach out.
