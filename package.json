@@ -1,0 +1,19 @@
+{
+  "name": "vite-plugin-debug-proxy",
+  "version": "1.0.0",
+  "description": "dynamic proxy http/https",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zjpzjp/vite-plugin-debug-proxy.git"
+  },
+  "keywords": [],
+  "author": "websir",
+  "license": "ISC",
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  }
+}
