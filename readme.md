@@ -1,4 +1,5 @@
 When developing frontend applications with Vite, there is often a need to interact with multiple backend servers, such as mock environments, testing environments, and production environments. To simplify this process, I have created a tool called the "Vite Dynamic Reverse Proxy Plugin." This plugin can dynamically set reverse proxies based on URL parameters (`?debug=URL`), allowing you to easily switch between different development and testing environments without manual proxy configuration.
+[中文文档](https://github.com/zjpzjp/vite-plugin-debug-proxy/blob/master/readme-zh.md)
 
 ### Key Features
 

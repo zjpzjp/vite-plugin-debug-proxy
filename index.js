@@ -1,13 +1,12 @@
-// import httpProxy from 'http-proxy'
 const httpProxy = require("http-proxy")
 const proxy = httpProxy.createProxyServer({
     secure: false
 })
 
-module.exports = (optios) => ({
+module.exports = (options) => ({
     name: 'debug-proxy',
     configureServer(server) {
-        optios = Object.assign({
+        options = Object.assign({
             default: "https://www.baidu.com",
             changeOrigin: true,
         }, options)
@@ -19,7 +18,7 @@ module.exports = (optios) => ({
                 debug = debug ? debug[2] : options.default
                 req.url = req.url.replace(/^\/api/, '')
                 proxy.web(req, res, {
-                    changeOrigin: optios.changeOrigin,
+                    changeOrigin: options.changeOrigin,
                     target: debug
                 })
                 proxy.on('error', (err) => {
