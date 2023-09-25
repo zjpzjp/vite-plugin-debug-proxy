@@ -30,7 +30,10 @@
 
      plugins: [
        // ...
-       dynamicProxy(),
+       dynamicProxy({
+           path:new RegExp("^/api")//使用正则
+         //path:"/api" //使用字符串路径
+       }),
      ],
    };
    ```

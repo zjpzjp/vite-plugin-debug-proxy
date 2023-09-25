@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-debug-proxy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "dynamic proxy http/https",
   "main": "index.js",
   "scripts": {

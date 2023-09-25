@@ -26,7 +26,10 @@ When developing frontend applications with Vite, there is often a need to intera
 
      plugins: [
        // ...
-       dynamicProxy(),
+       dynamicProxy({
+         path:new RegExp("^/api")//use RegExp 
+         //path:"/api" //use string path
+       }),
      ],
    };
    ```

@@ -6,17 +6,24 @@ const proxy = httpProxy.createProxyServer({
 module.exports = (options) => ({
     name: 'debug-proxy',
     configureServer(server) {
-        options = Object.assign({
-            default: "https://www.baidu.com",
-            changeOrigin: true,
-        }, options)
+        options = Object.assign(
+            {
+                path: '/api',
+                default: 'https://www.baidu.com',
+                changeOrigin: true
+            },
+            options
+        )
         server.middlewares.use((req, res, next) => {
+            if (options.path instanceof RegExp === false) {
+                options.path = new RegExp('^' + options.path)
+            }
             let u = new URL(req.url, 'http://localhost')
-            if (u.pathname.startsWith('/api/')) {
+            if (options.path.test(u.pathname)) {
                 let urlObj = new URL(req.headers.referer)
                 var debug = urlObj.search.slice(1).match(new RegExp('(^|&)debug=([^&]*)(&|$)', 'i'))
                 debug = debug ? debug[2] : options.default
-                req.url = req.url.replace(/^\/api/, '')
+                req.url = req.url.replace(options.path, '')
                 proxy.web(req, res, {
                     changeOrigin: options.changeOrigin,
                     target: debug
