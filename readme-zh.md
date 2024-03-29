@@ -16,14 +16,14 @@
 1. 安装插件：
 
    ```shell
-   npm install vite-plugin-dynamic-proxy
+   npm install vite-plugin-debug-proxy
    ```
 
 2. 在Vite配置文件中使用插件：
 
    ```javascript
    // vite.config.js
-   import dynamicProxy from 'vite-plugin-dynamic-proxy';
+   import dynamicProxy from 'vite-plugin-debug-proxy';
 
    export default {
      // ...其他配置
