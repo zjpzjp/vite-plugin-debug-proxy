@@ -12,14 +12,14 @@ When developing frontend applications with Vite, there is often a need to intera
 1. Install the plugin:
 
    ```shell
-   npm install vite-plugin-dynamic-proxy
+   npm install vite-plugin-debug-proxy
    ```
 
 2. Use the plugin in your Vite configuration file:
 
    ```javascript
    // vite.config.js
-   import dynamicProxy from 'vite-plugin-dynamic-proxy';
+   import dynamicProxy from 'vite-plugin-debug-proxy';
 
    export default {
      // ...other configuration
